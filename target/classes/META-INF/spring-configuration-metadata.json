@@ -1,0 +1,47 @@
+{
+  "groups": [
+    {
+      "name": "description",
+      "type": "com.signature.entity.ActionName",
+      "sourceType": "com.signature.entity.ActionName"
+    }
+  ],
+  "properties": [
+    {
+      "name": "description.e-x-i-t-m-e-r-g-e-d-p-d-f",
+      "type": "java.lang.String",
+      "sourceType": "com.signature.entity.ActionName"
+    },
+    {
+      "name": "description.e-x-i-t-p-d-f-p-a-g-e",
+      "type": "java.lang.String",
+      "sourceType": "com.signature.entity.ActionName"
+    },
+    {
+      "name": "description.e-x-i-t-s-i-g-n-a-t-u-r-e-p-a-d",
+      "type": "java.lang.String",
+      "sourceType": "com.signature.entity.ActionName"
+    },
+    {
+      "name": "description.s-a-v-e",
+      "type": "java.lang.String",
+      "sourceType": "com.signature.entity.ActionName"
+    },
+    {
+      "name": "description.s-h-o-w-m-e-r-g-e-d-p-d-f",
+      "type": "java.lang.String",
+      "sourceType": "com.signature.entity.ActionName"
+    },
+    {
+      "name": "description.s-h-o-w-p-d-f-p-a-g-e",
+      "type": "java.lang.String",
+      "sourceType": "com.signature.entity.ActionName"
+    },
+    {
+      "name": "description.v-i-s-i-t-s-i-g-n-a-t-u-r-e-p-a-d",
+      "type": "java.lang.String",
+      "sourceType": "com.signature.entity.ActionName"
+    }
+  ],
+  "hints": []
+}

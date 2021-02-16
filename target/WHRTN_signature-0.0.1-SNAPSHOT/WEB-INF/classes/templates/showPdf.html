@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=uft-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="0">
+    <title>Title</title>
+    <!-- bootstrap4引用-->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- JQuery引用-->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript">
+            history.go(1);
+    </script>
+
+
+</head>
+
+<body>
+<div class="container-fluid">
+<!--    Request:<span th:text="${current_db_pdfname}"></span>-->
+    <div class="row" style="height: 70%" >
+        <th:block th:each="i: ${#numbers.sequence(0, tempPNGIndex)}">
+        <img  th:src="@{${'image' + #request.getAttribute('req') + i + '.png'}}" alt="pdf_image" border="1" style="width:auto;max-width: 100%"/>
+        </th:block>
+       <!--<img th:src="@{${'image' + tempPNGIndex + '.png'}}" alt="pdf_image" border="1" style="width:auto;max-width: 100%"/>-->
+    </div>
+    <form action="/openSignaturePad" name="form" method="post" id="signature" th:object="${signature}">
+        <input type="hidden" th:field="*{filename}">
+        <input type="hidden" th:field="*{filepath}">
+        <input type="hidden" th:field="*{usertype}">
+        <input type="hidden" th:field="*{issigned}">
+        <input type="hidden" th:field="*{totalpages}">
+        <input type="hidden" th:value="${current_db_pdfname!=''}?${current_db_pdfname}:''" name="current_db_pdfname"/>
+        <div class="row" style="height: 60px">
+            <button type="submit" class="btn btn-primary btn-block btn-lg" id="btn">
+                退貨單內容已確認完成，開始進行簽章
+            </button>
+        </div>
+    </form>
+    <!--
+    <div class="row" id="showResult" class="text-light bg-info text-lg-center" style="width: 100%">
+    </div>
+    -->
+</div>
+<script type="text/javascript">
+
+
+    function openChildWindow() {
+        var returnValue = $('#returnValueFromSignaturePad').text();
+        if (returnValue != 'ok') {
+            window.open('/openSignaturePad', '_blank', 'Hello');
+        } else {
+            $('#btn').attr('disabled', true);
+            alert('您已簽章完成!');
+        }
+    }
+
+</script>
+
+<!--
+   <iframe src="pdfbox_image.png" width="100%" height="800" style="border: none;">
+   </iframe>
+   <div class="text-right" >
+       <span id="showResult"></span>
+       <button type="button" class="btn btn-primary btn-block btn-lg" onclick="window.open('/openSignaturePad', 'Hello');">我已閱讀完成並開始進行簽章</button>
+   </div>
+
+<div
+<div >
+<object data="pdfbox_image.png" type="application/pdf" width="100%" height="700px">
+
+    <iframe src="pdfbox_image.png" width="100%" height="100%" style="border: none;">
+
+        This browser does not support PDFs. Please download the PDF to view it: <a href="pdfbox_image.png">Download
+        PDF</a>
+
+    </iframe>
+
+</object>
+</div>
+-->
+
+</body>
+
+</html>

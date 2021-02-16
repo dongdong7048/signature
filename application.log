@@ -1,0 +1,46 @@
+2021-02-16 22:59:17 [restartedMain] INFO  com.signature.SignatureApplication - Starting SignatureApplication on LAPTOP-JCEMPM0T with PID 11400 (C:\Users\dong\IdeaProjects\WHRTN_signature\target\classes started by dong in C:\Users\dong\IdeaProjects\WHRTN_signature)
+2021-02-16 22:59:17 [restartedMain] INFO  com.signature.SignatureApplication - No active profile set, falling back to default profiles: default
+2021-02-16 22:59:17 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-02-16 22:59:17 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-02-16 22:59:19 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-02-16 22:59:19 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2021-02-16 22:59:19 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2021-02-16 22:59:19 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-02-16 22:59:19 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1339 ms
+2021-02-16 22:59:19 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-16 22:59:19 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-02-16 22:59:19 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-02-16 22:59:20 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-02-16 22:59:20 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-02-16 22:59:20 [restartedMain] INFO  com.signature.SignatureApplication - Started SignatureApplication in 2.707 seconds (JVM running for 5.716)
+2021-02-16 23:01:54 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-16 23:02:01 [http-nio-8080-exec-1] INFO  c.s.controller.SignatureController - ===訪問PDF首頁===
+2021-02-16 23:02:01 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-02-16 23:02:01 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-02-16 23:02:01 [http-nio-8080-exec-1] DEBUG c.s.mapper.HistoryMapper.insert - ==>  Preparing: INSERT INTO history (inputfile , action , begintime , endtime , usertype , outputfile , memo )VALUES (? , ? , ? , ? , ? , ? , ? )
+2021-02-16 23:02:01 [http-nio-8080-exec-1] DEBUG c.s.mapper.HistoryMapper.insert - ==> Parameters: WHRTN_00184363_1009596102.pdf(String), 訪問PDF首頁(String), 2021-02-16 23:02:01.554(Timestamp), null, S(String), null, null
+2021-02-16 23:02:01 [http-nio-8080-exec-1] DEBUG c.s.mapper.HistoryMapper.insert - <==    Updates: 1
+2021-02-16 23:02:01 [http-nio-8080-exec-1] DEBUG c.s.m.S.findDataByPdfFilename - ==>  Preparing: SELECT * FROM uploadlog WHERE filename = ?
+2021-02-16 23:02:01 [http-nio-8080-exec-1] DEBUG c.s.m.S.findDataByPdfFilename - ==> Parameters: WHRTN_00184363_1009596102S.pdf(String)
+2021-02-16 23:02:01 [http-nio-8080-exec-1] DEBUG c.s.m.S.findDataByPdfFilename - <==      Total: 0
+2021-02-16 23:02:01 [http-nio-8080-exec-1] DEBUG c.s.m.S.findDataByPdfFilename - ==>  Preparing: SELECT * FROM uploadlog WHERE filename = ?
+2021-02-16 23:02:01 [http-nio-8080-exec-1] DEBUG c.s.m.S.findDataByPdfFilename - ==> Parameters: WHRTN_00184363_1009596102H.pdf(String)
+2021-02-16 23:02:01 [http-nio-8080-exec-1] DEBUG c.s.m.S.findDataByPdfFilename - <==      Total: 0
+2021-02-16 23:02:01 [http-nio-8080-exec-1] DEBUG c.s.m.S.findDataByPdfFilename - ==>  Preparing: SELECT * FROM uploadlog WHERE filename = ?
+2021-02-16 23:02:01 [http-nio-8080-exec-1] DEBUG c.s.m.S.findDataByPdfFilename - ==> Parameters: WHRTN_00184363_1009596102A.pdf(String)
+2021-02-16 23:02:01 [http-nio-8080-exec-1] DEBUG c.s.m.S.findDataByPdfFilename - <==      Total: 0
+2021-02-16 23:02:02 [http-nio-8080-exec-1] INFO  o.a.pdfbox.rendering.PDFRenderer - Your current java version is: 1.8.0_40
+2021-02-16 23:02:02 [http-nio-8080-exec-1] INFO  o.a.pdfbox.rendering.PDFRenderer - To get higher rendering speed on old java 1.8 or 9 versions,
+2021-02-16 23:02:02 [http-nio-8080-exec-1] INFO  o.a.pdfbox.rendering.PDFRenderer -   update to the latest 1.8 or 9 version (>= 1.8.0_191 or >= 9.0.4),
+2021-02-16 23:02:02 [http-nio-8080-exec-1] INFO  o.a.pdfbox.rendering.PDFRenderer -   or
+2021-02-16 23:02:02 [http-nio-8080-exec-1] INFO  o.a.pdfbox.rendering.PDFRenderer -   use the option -Dsun.java2d.cmm=sun.java2d.cmm.kcms.KcmsServiceProvider
+2021-02-16 23:02:02 [http-nio-8080-exec-1] INFO  o.a.pdfbox.rendering.PDFRenderer -   or call System.setProperty("sun.java2d.cmm", "sun.java2d.cmm.kcms.KcmsServiceProvider")
+2021-02-16 23:02:02 [http-nio-8080-exec-1] WARN  o.a.f.ttf.GlyphSubstitutionTable - FeatureRecord array not alphabetically sorted by FeatureTag: init < isol
+2021-02-16 23:02:02 [http-nio-8080-exec-1] WARN  o.a.f.ttf.GlyphSubstitutionTable - FeatureRecord array not alphabetically sorted by FeatureTag: init < isol
+2021-02-16 23:02:38 [http-nio-8080-exec-7] DEBUG c.s.mapper.HistoryMapper.insert - ==>  Preparing: INSERT INTO history (inputfile , action , begintime , endtime , usertype , outputfile , memo )VALUES (? , ? , ? , ? , ? , ? , ? )
+2021-02-16 23:02:38 [http-nio-8080-exec-7] DEBUG c.s.mapper.HistoryMapper.insert - ==> Parameters: WHRTN_00184363_1009596102.pdf(String), 離開PDF首頁(String), null, 2021-02-16 23:02:38.251(Timestamp), S(String), null, null
+2021-02-16 23:02:38 [http-nio-8080-exec-7] DEBUG c.s.mapper.HistoryMapper.insert - <==    Updates: 1
+2021-02-16 23:02:38 [http-nio-8080-exec-7] INFO  c.s.controller.SignatureController - ===訪問簽名頁===
+2021-02-16 23:02:38 [http-nio-8080-exec-7] DEBUG c.s.mapper.HistoryMapper.insert - ==>  Preparing: INSERT INTO history (inputfile , action , begintime , endtime , usertype , outputfile , memo )VALUES (? , ? , ? , ? , ? , ? , ? )
+2021-02-16 23:02:38 [http-nio-8080-exec-7] DEBUG c.s.mapper.HistoryMapper.insert - ==> Parameters: WHRTN_00184363_1009596102.pdf(String), 訪問簽名頁(String), 2021-02-16 23:02:38.267(Timestamp), null, S(String), null, null
+2021-02-16 23:02:38 [http-nio-8080-exec-7] DEBUG c.s.mapper.HistoryMapper.insert - <==    Updates: 1

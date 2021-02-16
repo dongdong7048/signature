@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WHRTN_signature:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>WHRTN_signature</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="WHRTN_signature-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="WHRTN_signature:war exploded" />
+    </root>
+  </artifact>
+</component>

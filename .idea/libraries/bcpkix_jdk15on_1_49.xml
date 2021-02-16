@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="bcpkix-jdk15on-1.49">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/itextToL235/lib/bcpkix-jdk15on-1.49.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/itextToL235/lib/typography-2.0.5-SNAPSHOT.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/itextToL235/lib/bcprov-jdk15on-1.49.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/itextToL235/lib/forms-7.1.7-SNAPSHOT.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/itextToL235/lib/io-7.1.7-SNAPSHOT.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/itextToL235/lib/itextpdf-5.5.13.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/itextToL235/lib/kernel-7.1.7-SNAPSHOT.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/itextToL235/lib/layout-7.1.7-SNAPSHOT.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/itextToL235/lib/logback-classic-1.1.3.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/itextToL235/lib/logback-core-1.1.3.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/itextToL235/lib/pdfa-7.1.7-SNAPSHOT.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/itextToL235/lib/sign-7.1.7-SNAPSHOT.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/itextToL235/lib/slf4j-api-1.7.13.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
