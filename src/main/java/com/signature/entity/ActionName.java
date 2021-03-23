@@ -8,12 +8,12 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesBindin
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@Component
-@ConfigurationProperties(prefix = "description")
-@PropertySource(value="classpath:application.properties",encoding="UTF-8")
+@AllArgsConstructor //lombok套件，加入此註解即提供全參數的構造器
+@NoArgsConstructor //lombok套件，加入此註解即提供無參數的構造器
+@Data //lombok套件，加入此註解即提供set,get的功能
+@Component //加入此註解表示由spring管理
+@ConfigurationProperties(prefix = "description") //此註解表示會到主配置文件中查找前綴名為description的參數
+@PropertySource(value="classpath:application.properties",encoding="UTF-8") //此註解表示此類對應到application.properties
 public class ActionName {
     public String SHOW_PDFPAGE;
     public String EXIT_PDFPAGE;

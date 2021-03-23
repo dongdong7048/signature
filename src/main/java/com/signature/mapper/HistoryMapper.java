@@ -5,7 +5,7 @@ import com.signature.entity.Signature;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component //由spring管理
 public interface HistoryMapper {
 
 

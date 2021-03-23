@@ -26,29 +26,43 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-@Slf4j
+@Slf4j // lombok套件，引入Slf4j，直接可使用log功能
 @Controller
 public class SignatureController {
 
 
     //切記，每一次進行訪問都不會改變其值的資料，可把它設為成員變量使用；會隨著訪問而有所異動的值，不要設為成員變量，不然每次訪問這個變量值就會一直變動！
 
-    //央倉pdf outbox路徑(不變)
+    //央倉pdf outbox uat路徑
     public static final String WHRTN_uat_outbox = "\\\\10.102.64.1\\rtv_esigned_pdf_uat\\outbox\\";
 
-    //央倉pdf inbox路徑(不變)
+    //央倉pdf inbox uat路徑
     public static final String WHRTN_uat_inbox = "\\\\10.102.64.1\\rtv_esigned_pdf_uat\\inbox\\";
 
-    //本機D槽路徑(不變)
+    //央倉pdf outbox Production路徑
+    public static final String WHRTN_outbox = "\\\\10.102.64.1\\rtv_esigned_pdf\\outbox\\";
+
+    //央倉pdf inbox Production路徑
+    public static final String WHRTN_inbox = "\\\\10.102.64.1\\rtv_esigned_pdf\\inbox\\";
+
+
+    //本機D槽路徑
     public static final String D_Disk_path = "D:\\";
 
-    //桌面temp資料夾路徑(不變)
+    //央倉桌面temp_Prod資料夾路徑
+    public static final String Desktop_temp_Prod_DirectoryPath = FileSystemView.getFileSystemView().getHomeDirectory().toString() + "\\temp_Prod\\";
+
+    //央倉桌面temp_Uat資料夾路徑
+    public static final String Desktop_temp_Uat_DirectoryPath = FileSystemView.getFileSystemView().getHomeDirectory().toString() + "\\temp_Uat\\";
+
+    //本機桌面temp資料夾路徑
     public static final String Desktop_temp_DirectoryPath = FileSystemView.getFileSystemView().getHomeDirectory().toString() + "\\temp\\";
 
-    //桌面路徑(不變)
+
+    //本機桌面路徑
     public static final String Desktop_Path = FileSystemView.getFileSystemView().getHomeDirectory().toString();
 
-    //桌面inbox資料夾路徑(不變)
+    //本機桌面inbox資料夾路徑
     public static final String Desktop_inbox_DirectoryPath = FileSystemView.getFileSystemView().getHomeDirectory().toString() + "\\inbox\\";
 
     ItexeHandle itexeHandle = null;
@@ -149,6 +163,13 @@ public class SignatureController {
         return "showPdf";
     }
 
+    /**
+     * 取得pdf的頁數
+     * 2021年3月19日
+     *
+     * @param PDFfileResource
+     * @return int
+     */
     private int getPDFfilePages(File PDFfileResource) throws IOException {
         PDDocument doc = PDDocument.load(PDFfileResource);
         int pages = doc.getNumberOfPages();
@@ -157,6 +178,14 @@ public class SignatureController {
         return pages;
     }
 
+
+    /**
+     * 
+     * 2021年3月19日
+     *
+     * @param  pdfname , usertype
+     * @return boolean
+     */
     private boolean checkPdfFileIsExistAndUsertypeIsExist(String pdfname, String usertype) {
         File file = new File(D_Disk_path+pdfname);
         if(!file.exists()){
@@ -409,7 +438,7 @@ public class SignatureController {
         //將簽名png檔存在temp資料夾中
         multipartFile.transferTo(file);
         //合併pdf並存檔
-        String result = pdfMerge(SOURCE, TARGET, get6RamdomInteger(), Current_Usertype, Desktop_temp_DirectoryPath + getFilenameWithoutExtension(update_db_filename) + "signature.png",TargetPathWithoutExtension,Integer.parseInt(totalpages));
+        String result = pdfMerge(SOURCE, TARGET, get7RamdomInteger(), Current_Usertype, Desktop_temp_DirectoryPath + getFilenameWithoutExtension(update_db_filename) + "signature.png",TargetPathWithoutExtension,Integer.parseInt(totalpages));
         returnDataList.add(result);
         //將pdf合併檔複製一份到inbox資料夾
         File resource = new File(TARGET);
@@ -430,7 +459,7 @@ public class SignatureController {
                 SOURCE = original_filepath;
                 TARGET = original_filepathWithoutExtension + "H.pdf";
                 TargetPathWithoutExtension = original_filepathWithoutExtension+"H";
-                result = pdfMerge(SOURCE, TARGET, get6RamdomInteger(), Current_Usertype, Desktop_temp_DirectoryPath + getFilenameWithoutExtension(update_db_filename) + "signature.png",TargetPathWithoutExtension,Integer.parseInt(totalpages));
+                result = pdfMerge(SOURCE, TARGET, get7RamdomInteger(), Current_Usertype, Desktop_temp_DirectoryPath + getFilenameWithoutExtension(update_db_filename) + "signature.png",TargetPathWithoutExtension,Integer.parseInt(totalpages));
                 returnDataList.set(0,result);
                 inboxFilepath = Desktop_inbox_DirectoryPath+original_pdfnameWithoutExtension+"H.pdf";
                 File targetFile_1 = new File(inboxFilepath);
@@ -444,7 +473,7 @@ public class SignatureController {
                 SOURCE = original_filepath;
                 TARGET = original_filepathWithoutExtension + "S.pdf";
                 TargetPathWithoutExtension = original_filepathWithoutExtension+"S";
-                result = pdfMerge(SOURCE, TARGET, get6RamdomInteger(), Current_Usertype, Desktop_temp_DirectoryPath + getFilenameWithoutExtension(update_db_filename) + "signature.png",TargetPathWithoutExtension,Integer.parseInt(totalpages));
+                result = pdfMerge(SOURCE, TARGET, get7RamdomInteger(), Current_Usertype, Desktop_temp_DirectoryPath + getFilenameWithoutExtension(update_db_filename) + "signature.png",TargetPathWithoutExtension,Integer.parseInt(totalpages));
                 returnDataList.set(0,result);
                 inboxFilepath = Desktop_inbox_DirectoryPath+original_pdfnameWithoutExtension+"S.pdf";
                 File targetFile_2 = new File(inboxFilepath);
@@ -483,8 +512,8 @@ public class SignatureController {
      *
      * @return int
      */
-    private int get6RamdomInteger() {
-        return (int) ((Math.random() * 9 + 1) * 100000);//(int)(Math.random()*8998)+1000+1;
+    private int get7RamdomInteger() {
+        return (int) ((Math.random() * 9 + 1) * 1000000);//(int)(Math.random()*8998)+1000+1;
     }
 
 
@@ -597,6 +626,7 @@ public class SignatureController {
         //需要打成war包才不會有問題
         int tempPNGIndex = 0;
         String path = ResourceUtils.getURL("classpath:").getPath();
+        log.info("===========classpath: "+ path + "=================");
         //String path = ClassUtils.getDefaultClassLoader().getResource("").getPath();
         //Resource resource = new ClassPathResource("static/image"+);
         //InputStream inputStream = resource.getInputStream();
@@ -606,9 +636,10 @@ public class SignatureController {
         PDFRenderer renderer = new PDFRenderer(doc);
         int pageCount = doc.getNumberOfPages();
         for (int i = 0; i < pageCount; i++) {
-            BufferedImage image = renderer.renderImageWithDPI(i, 780);//165
+            BufferedImage image = renderer.renderImageWithDPI(i, 400);//165
             //BufferedImage image = renderer.renderImage(i, 2.5f);
             ImageIO.write(image, "PNG", new File(path + "static/image" + getFilenameWithoutExtension(pdfname) + i + ".png"));
+            log.info("===========ImageIO savePath: "+ (path + "static/image" + getFilenameWithoutExtension(pdfname) + i + ".png") + "=================");
             tempPNGIndex = i;
         }
         if (doc != null) {
@@ -626,6 +657,9 @@ public class SignatureController {
      * @param TARGET   合併後產出的pdf檔
      * @param count    參數
      * @param usertype 使用者代號
+     * @param signPNG_path 簽名圖檔路徑
+     * @param TargetPathWithoutExtension   產出的pdf檔路徑去除副檔名
+     * @param currentPDFpages   黨前pdf檔頁數
      * @return result
      */
     public static String pdfMerge(String source, String TARGET, int count, String usertype, String signPNG_path , String TargetPathWithoutExtension ,int currentPDFpages)  {
@@ -680,6 +714,7 @@ public class SignatureController {
         if (pngfile.exists())
             pngfile.delete();
         String path = ResourceUtils.getURL("classpath:").getPath();
+        log.info("=========deleteAllTempImageFile======:  classpath:"+ path);
         int i =0;
         //刪除pdf轉png的檔案
         //String path = ResourceUtils.getURL("classpath:").getPath();
