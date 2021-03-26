@@ -2,6 +2,7 @@ package com.signature.mapper;
 
 import com.signature.entity.History;
 import com.signature.entity.Signature;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
